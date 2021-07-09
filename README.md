@@ -20,7 +20,7 @@
   </a>
   <h3 align="center">vue-electron-cli</h3>
   <p align="center">
-    基于vue3.x的中后台管理系统(elementPlus+tailwindcss)
+    基于Vue CLI搭建的Electron脚手架
     <br />
     <a href="https://github.com/viarotel/vue-electron-cli" target="_self"><strong>探索本项目的文档 »</strong></a>
     <br />
@@ -31,6 +31,7 @@
     ·
     <a href="https://github.com/viarotel/vue-electron-cli/issues" target="_blank">提出新特性</a>
   </p>
+
 
 
 ## 目录
