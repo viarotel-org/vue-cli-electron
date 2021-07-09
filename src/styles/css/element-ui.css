@@ -1,0 +1,33 @@
+@layer components {
+  .el-tabs.flex-mode {
+    @apply flex flex-col h-full !important;
+    .el-tabs__header {
+      @apply flex-shrink-0 !important;
+    }
+    .el-tabs__content {
+      @apply flex-grow overflow-hidden h-full !important;
+    }
+    .el-tab-pane {
+      @apply h-full;
+    }
+  }
+  .el-tabs.single-mode {
+    .el-tabs__content {
+      @apply hidden !important;
+    }
+  }
+  .el-date-editor,
+  .el-select {
+    @apply max-w-full !important;
+  }
+
+  input.hide-number-toolbox {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
