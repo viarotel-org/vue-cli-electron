@@ -18,5 +18,5 @@ module.exports = {
     }
     return value;
   },
-  pathJoin: (dir, root = process.cwd()) => nodePath.join(root, dir),
+  pathJoin: (path, root = process.cwd()) => nodePath.join(root, path),
 };
