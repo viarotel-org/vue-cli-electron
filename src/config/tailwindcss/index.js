@@ -16,11 +16,8 @@ module.exports = {
     enabled: isProduction,
     preserveHtmlElements: true,
     content: [
-      './src/main.js',
-      './src/App.vue',
-      './src/views/**/*.vue',
-      './src/components/**/*.vue',
-      './src/layout/**/*.vue',
+      './public/**/*.html',
+      './src/**/*.{js,jsx,ts,tsx,vue}',
     ],
     options: {
       safelist: [/^el-/],

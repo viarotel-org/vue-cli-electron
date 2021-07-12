@@ -15,14 +15,14 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/viarotel/vue-electron-cli">
+  <a href="https://github.com/viarotel/vue-electron-cli" target="_blank">
     <img src="src/assets/images/logo.png" alt="viarotel" height="80">
   </a>
   <h3 align="center">vue-electron-cli</h3>
   <p align="center">
     基于Vue CLI搭建的Electron脚手架
     <br />
-    <a href="https://github.com/viarotel/vue-electron-cli" target="_self"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/viarotel/vue-electron-cli" target="_blank"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
     <a href="https://vue-electron-cli.vercel.app/" target="_blank">查看Demo</a>
@@ -100,6 +100,7 @@ filetree
 │  ├── /utils/ //存放开发过程中一些公共的js方法。
 │  ├── /store/ //vuex状态管理
 │  ├── /windows/ //多窗口目录
+│  ├── /views/ //vue路由组件页面目录
 │  ├── /App.vue //vue组件入口文件
 │  ├── /main.js //渲染进程入口文件
 ├── .gitignore //git忽略文件配置

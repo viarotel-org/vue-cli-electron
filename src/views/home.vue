@@ -22,7 +22,6 @@ export default {
   methods: {
     getMdData() {
       const filePath = pathJoin('README.md');
-      console.log('filePath', filePath);
       readFile(filePath, (error, data) => {
         if (error) console.log(error);
         this.mdData = data.toString();

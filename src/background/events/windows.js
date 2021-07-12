@@ -8,7 +8,8 @@ const _ipcMain = ipcMain();
 
 export default {
   init(appManager) {
-    const mainWindow = appManager.windows.main.win;
+    const getWindow = (name) => appManager.windows[name].win;
+    const mainWindow = getWindow('main');
 
     mainWindow.on('close', (e) => {
       e.preventDefault();

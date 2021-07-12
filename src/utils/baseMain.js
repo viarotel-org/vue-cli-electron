@@ -6,6 +6,8 @@ import {
   ipcRenderer,
 } from '@/utils/electron';
 
+import icons from '@/icons';
+
 import store from '@/store';
 
 import elementPlus from '@/plugins/element-plus';
@@ -19,8 +21,13 @@ import '@/styles/css/index.css';
 export default function (App) {
   const app = createApp(App);
   app.config.globalProperties.$ipcRenderer = ipcRenderer();
+
+  app.use(icons);
+
   app.use(store);
+
   app.use(vFull);
+
   app.use(elementPlus);
 
   return app;

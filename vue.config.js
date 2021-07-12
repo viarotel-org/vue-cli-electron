@@ -27,6 +27,24 @@ module.exports = {
       },
     },
   },
+  chainWebpack(config) {
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(pathJoin('src/icons'))
+      .end();
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(pathJoin('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'svg-[name]',
+      })
+      .end();
+  },
 };
 
 function createPages(dirPath) {
@@ -46,7 +64,7 @@ function createPages(dirPath) {
     });
   }
   // console.log('files', files);
-  const windowsPathLength = pathJoin('src/pages').length;
+  const windowsPathLength = pathJoin('src/windows').length;
   const regExp = process.platform !== 'win32' ? /\//g : /\\/g;
 
   // 入口页面
@@ -63,14 +81,14 @@ function createPages(dirPath) {
     path,
   }) => {
     const filename = path
-      .substring(windowsPathLength + 3)
+      .substring(windowsPathLength + 1)
       .replace(regExp, '_')
       .replace(/_main/, '')
       .replace(/\.js$/, '.html');
-    // console.log('filename', filename);
+    console.log('filename', filename);
 
     const pageName = filename.substring(0, filename.lastIndexOf('.'));
-    // console.log('pageName', pageName);
+    console.log('pageName', pageName);
 
     obj[pageName] = {
       entry: path,

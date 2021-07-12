@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="">我是主窗口</div>
+    <div class="pb-4">我是主窗口</div>
     <el-button
       type="primary"
       class=""
