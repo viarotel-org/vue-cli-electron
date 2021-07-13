@@ -66,16 +66,17 @@ export function ipcMain() {
  * @param  win BrowserWindow实例
  * @returns {object}
  */
-export function devTools(win) {
-  const webContents = win.webContents;
-  return {
-    open: (params = {}) => webContents.openDevTools({
+export function toggleDevTools(ctx, params) {
+  const webContents = ctx.webContents || ctx;
+  if (webContents.isDevToolsOpened()) {
+    webContents.closeDevTools();
+  } else {
+    webContents.openDevTools({
       mode: 'detach',
       ...params,
-    }),
-    close: () => webContents.closeDevTools(),
-    isOpen: () => webContents.isDevToolsOpened(),
-  };
+    });
+  }
+  return webContents;
 }
 /**
  * @description 创建浏览器窗口
@@ -116,14 +117,10 @@ export class CreateBrowserWindow {
     const WEBPACK_DEV_SERVER_URL = process.env.WEBPACK_DEV_SERVER_URL;
     if (WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
-      this.win.loadURL(WEBPACK_DEV_SERVER_URL + this.name).then(() => {
-        if (!process.env.IS_TEST) {
-          const _devTools = devTools(this.win);
-          _devTools.open({
-            mode: 'detach',
-          });
-        }
-      });
+      this.win.loadURL(WEBPACK_DEV_SERVER_URL + this.name);
+      // .then(() => {
+      //   if (!process.env.IS_TEST) toggleDevTools(this.win);
+      // });
     } else {
       const {
         createProtocol,

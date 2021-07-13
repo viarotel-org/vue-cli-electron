@@ -58,5 +58,6 @@ module.exports = {
     'no-tabs': 'off',
     'guard-for-in': 'off',
     'eqeqeq': 'off',
+    'no-unused-expressions': 'off',
   },
 }

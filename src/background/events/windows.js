@@ -1,10 +1,13 @@
 import {
+  app,
+} from 'electron';
+import {
   showMessageBox,
-  ipcMain,
+  // ipcMain,
 } from '@/utils/electron';
 import tray from '@/background/tray';
 
-const _ipcMain = ipcMain();
+// const _ipcMain = ipcMain();
 
 export default {
   init(appManager) {
@@ -23,7 +26,8 @@ export default {
       {
         label: '直接退出',
         click() {
-          _ipcMain.send(mainWindow, 'app-exit-before');
+          // _ipcMain.send(mainWindow, 'app-exit-before');
+          app.exit();
         },
       },
       ]);

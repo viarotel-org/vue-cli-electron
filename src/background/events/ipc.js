@@ -3,7 +3,7 @@ import {
 } from 'electron';
 import {
   ipcMain,
-  devTools,
+  toggleDevTools,
   CreateBrowserWindow,
 } from '@/utils/electron';
 
@@ -33,14 +33,12 @@ export default {
       app.exit();
     });
 
-    // 开发者工具
-    _ipcMain.on('devtools', (e, {
+    // 操作开发者工具
+    _ipcMain.on('toggleDevTools', (e, {
       win = mainWindow,
-      type = 'open',
       params = {},
     } = {}) => {
-      const _devTools = devTools(win);
-      _devTools[type](params);
+      toggleDevTools(win, params);
     });
   },
 };

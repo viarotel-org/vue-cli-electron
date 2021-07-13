@@ -1,6 +1,6 @@
 # vue-electron-cli
 
-基于Vue CLI搭建的Electron脚手架, 封装了最佳实践的多窗口处理以及主进程和渲染进程之间通信等 ui库使用 element-plus(已配置按需导入), css 框架使用 tailwindcss(下一代css框架)
+基于Vue CLI搭建的Electron脚手架, 封装了最佳实践的多窗口处理以及主进程和渲染进程之间通信等 ui库使用 element-plus(已配置按需导入), css 框架使用 tailwindcss(下一代css框架) 请求使用 axios 进行数据请求
 
 <!-- PROJECT SHIELDS -->
 
@@ -42,7 +42,7 @@
   - [打包构建](#打包构建)
 - [文件目录说明](#文件目录说明)
 - [使用到的框架](#使用到的框架)
-- [版本控制](#版本控制)
+- [更新日志](#更新日志)
 - [作者](#作者)
 - [鸣谢](#鸣谢)
 
@@ -131,9 +131,9 @@ filetree
 - tailwindcss
 - axios
 
-### 版本控制
+### 更新日志
 
-该项目使用Git进行版本管理。
+更新日志请查看 [CHANGELOG.md](CHANGELOG.md)
 
 ### 作者
 

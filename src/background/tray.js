@@ -1,16 +1,17 @@
 import {
   Tray,
   Menu,
+  app,
 } from 'electron';
 import {
   appName,
   logoPath,
 } from '@/config/index';
-import {
-  ipcMain,
-} from '@/utils/electron';
+// import {
+//   ipcMain,
+// } from '@/utils/electron';
 
-const _ipcMain = ipcMain();
+// const _ipcMain = ipcMain();
 
 export default {
   async init(mainWindow) {
@@ -35,7 +36,8 @@ export default {
       label: '退出',
       type: 'normal',
       click() {
-        _ipcMain.send(mainWindow, 'app-exit-before');
+        // _ipcMain.send(mainWindow, 'app-exit-before');
+        app.exit();
       },
     },
     ]);

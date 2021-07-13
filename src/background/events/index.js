@@ -1,6 +1,7 @@
 import app from './app';
-import ipc from './ipc';
 import windows from './windows';
+import ipc from './ipc';
+import shortcutkey from './shortcutkey';
 import process from './process';
 
 export default {
@@ -9,6 +10,7 @@ export default {
       windowsReady() {
         windows.init(appManager);
         ipc.init(appManager);
+        shortcutkey.init(appManager);
       },
     });
     process.init(appManager);

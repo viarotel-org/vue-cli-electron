@@ -17,9 +17,6 @@ module.exports = {
         npmRebuild: false,
         productName: appName,
         appId: 'com.jar.starter.box',
-        extraFiles: [
-          './core/**',
-        ],
         win: {
           icon: 'public/logos/index.ico',
           target: 'nsis',
@@ -64,7 +61,7 @@ function createPages(dirPath) {
     });
   }
   // console.log('files', files);
-  const windowsPathLength = pathJoin('src/windows').length;
+  const windowsPathLength = pathJoin(dirPath).length;
   const regExp = process.platform !== 'win32' ? /\//g : /\\/g;
 
   // 入口页面
