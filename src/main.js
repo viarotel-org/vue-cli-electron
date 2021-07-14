@@ -14,6 +14,11 @@ const app = baseMain(App);
 hljs.registerLanguage('json', json);
 VMdEditor.use(githubTheme, {
   Hljs: hljs,
+  extend(md) {
+    md.set({
+      breaks: false,
+    });
+  },
 });
 app.use(VMdEditor);
 

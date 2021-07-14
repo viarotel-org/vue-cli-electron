@@ -85,7 +85,7 @@ filetree
 │  ├── /logos //浏览器端，桌面端中显示的图标
 │  ├── /index.html // 入口模板文件
 ├── /src/
-│  ├── /background/ //electron主进程问题目录
+│  ├── /background/ //electron主进程目录
 │  ├── /assets/ //存放项目中需要用到的资源文件，css、js、images等。
 │  ├── /components/ //存放vue开发中一些公共组件
 │  ├── /config/ //全局配置文件
