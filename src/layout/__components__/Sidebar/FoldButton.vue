@@ -5,7 +5,10 @@
   >
     <i
       :title="modelValue ? '展开' : '折叠'"
-      :class="modelValue ? 'el-icon-arrow-right' : 'el-icon-arrow-left'"
+      :class="[
+        'el-icon-arrow-left transform transition-transform duration-700',
+        modelValue ? 'rotate-180' : 'rotate-0',
+      ]"
     ></i>
   </div>
 </template>
