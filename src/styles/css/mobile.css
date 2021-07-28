@@ -11,22 +11,6 @@
   .van-pull-refresh {
     overflow: initial !important;
   }
-
-  img {
-    position: relative;
-  }
-  img::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    /* background-color: #e0e0e0; */
-    background: #e0e0e0 url("~@/assets/images/temp-image.png") center / 60%
-      no-repeat;
-  }
 }
 
 @layer components {

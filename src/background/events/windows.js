@@ -3,11 +3,11 @@ import {
 } from 'electron';
 import {
   showMessageBox,
-  // ipcMain,
+  ipcMain,
 } from '@/utils/electron';
 import tray from '@/background/tray';
 
-// const _ipcMain = ipcMain();
+const _ipcMain = ipcMain();
 
 export default {
   init(appManager) {
@@ -31,6 +31,14 @@ export default {
         },
       },
       ]);
+    });
+    // 窗口最大化时触发
+    mainWindow.on('maximize', () => {
+      _ipcMain.send(mainWindow, 'toggle-maximize', true);
+    });
+    // 当窗口从最大化状态退出时触发
+    mainWindow.on('unmaximize', () => {
+      _ipcMain.send(mainWindow, 'toggle-maximize', false);
     });
   },
 };

@@ -4,7 +4,7 @@ import {
   globalShortcut,
 } from 'electron';
 
-// import vueDevtools from '@/background/plugins/vueDevtools';
+import vueDevtools from '@/background/plugins/vueDevtools';
 
 export default {
   init(appManager, {
@@ -19,7 +19,7 @@ export default {
 
     /** 在Electron加载前需要进行初始化 */
     app.on('ready', async () => {
-      // await vueDevtools.init();
+      await vueDevtools.init();
       appManager.init();
       windowsReady();
     });

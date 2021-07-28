@@ -1,4 +1,33 @@
 @import "./tailwind.css";
 @import "./base.css";
 @import "./pc.css";
-@import "./element-ui.css";
+@import "./vue-slider.css";
+/* @import "./element-ui.css"; */
+
+@layer components {
+  .button-base {
+    @apply flex items-center justify-center flex-shrink-0 transition-all transform cursor-pointer rounded-xl hover:bg-gray-100 active:shadow-inner active:scale-95 active:text-red-600;
+  }
+
+  .button-rotate-bigger {
+    @apply hover:-rotate-1 hover:scale-105 hover:shadow-md active:scale-100 transition-all duration-300 cursor-pointer ;
+  }
+
+  .px-resize {
+    @apply px-[5vw] xl:px-[10vw];
+  }
+
+  .bg-filter-base {
+    @apply absolute inset-0 -z-1 bg-no-repeat bg-cover scale-110 filter blur-xl brightness-[30%];
+  }
+
+  @variants group-hover {
+    .shadow-image-base {
+      @apply opacity-100 absolute -z-1 top-0 left-0 w-full h-full bg-cover filter blur-lg transition-all duration-300;
+    }
+  }
+
+  .aspect-ratio-square {
+    aspect-ratio: 1 / 1;
+  }
+}

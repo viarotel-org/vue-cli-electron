@@ -3,7 +3,7 @@ import {
 } from 'electron';
 import {
   isDevelopment,
-} from '@/utils';
+} from '@/utils/node';
 
 export default {
   init() {

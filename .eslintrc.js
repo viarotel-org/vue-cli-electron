@@ -31,6 +31,7 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/valid-template-root': 'off',
     'vue/no-multiple-template-root': 'off',
+    'vue/require-default-prop': 'off',
     'linebreak-style': [0, 'error', 'windows'],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,

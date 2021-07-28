@@ -6,30 +6,32 @@ import {
 const routes = [
   {
     path: '/',
-    component: () => import('@/layout/index.vue'),
     redirect: '/home',
-    children: [
-      {
-        path: '/home',
-        name: 'home',
-        meta: {
-          title: '主页',
-          icon: 'el-icon-house',
-        },
-        component: () => import('@/views/home.vue'),
-      },
-      {
-        path: '/sub-window-create',
-        name: 'sub-window-create',
-        meta: {
-          title: '创建子窗口',
-          icon: 'el-icon-folder-add',
-        },
-        component: () => import('@/views/sub-window-create.vue'),
-      },
-    ],
   },
-
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home/index.vue'),
+    meta: {
+      keepAlive: true,
+    },
+  },
+  {
+    path: '/found',
+    name: 'found',
+    component: () => import('@/views/found/index.vue'),
+    meta: {
+      keepAlive: true,
+    },
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: () => import('@/views/my/index.vue'),
+    meta: {
+      keepAlive: true,
+    },
+  },
 ];
 
 const router = createRouter({

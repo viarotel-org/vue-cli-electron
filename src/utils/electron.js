@@ -8,6 +8,15 @@ import {
 import {
   windowOptions,
 } from '@/config';
+
+export const isDevelopment = process.env.NODE_ENV === 'development';
+export const isProduction = process.env.NODE_ENV === 'production';
+
+/**
+ * @desc JavaScript源代码路径.
+ */
+export const resourcesPath = () => (isProduction ? `${process.resourcesPath}` : '.');
+
 /**
  *
  * @param {*} content 提示内容

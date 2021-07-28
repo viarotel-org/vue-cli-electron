@@ -3,7 +3,7 @@ import installExtension, {
 } from 'electron-devtools-installer';
 import {
   isDevelopment,
-} from '@/utils';
+} from '@/utils/node';
 
 // Install Vue Devtools
 export default {

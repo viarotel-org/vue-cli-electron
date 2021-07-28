@@ -10,13 +10,12 @@ module.exports = {
   //   // preflight: false,
   // },
   mode: 'jit',
-  darkMode: false,
-  important: true,
+  darkMode: true,
+  important: false,
   purge: {
     enabled: isProduction,
     preserveHtmlElements: true,
     content: [
-      './public/**/*.html',
       './src/**/*.{js,jsx,ts,tsx,vue}',
     ],
     options: {
@@ -101,6 +100,10 @@ module.exports = {
         // '12': '3rem'
         ...createConfig('$:$rem', 12, 300, 0.25, 2),
       },
+      zIndex: {
+        '-1': '-1',
+        ...createConfig('-$:-$', 10, 50, 1, 10),
+      },
     },
     // 字体阴影 text-shadow-xs
     textShadow: {
@@ -115,16 +118,16 @@ module.exports = {
     },
     // 文字截断 .clamp-1
     lineClamp: {
-      1: 1,
-      2: 2,
-      3: 3,
-      4: 4,
-      5: 5,
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
     },
   },
   plugins: [
     require('tailwindcss-textshadow'), // 文字阴影
-    require('tailwindcss-line-clamp'), // 文字截断
+    require('@tailwindcss/line-clamp'), // 文字截断
   ],
   // variants: {},
 };

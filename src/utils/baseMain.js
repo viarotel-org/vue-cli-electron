@@ -10,17 +10,23 @@ import icons from '@/icons';
 
 import store from '@/store';
 
-import elementPlus from '@/plugins/element-plus';
-
 import {
   vFull,
 } from '@/directive';
 
 import '@/styles/css/index.css';
 
+import {
+  tempImage,
+} from '@/utils/index';
+
+import VueScreen from 'vue-screen';
+
 export default function (App) {
   const app = createApp(App);
+
   app.config.globalProperties.$ipcRenderer = ipcRenderer();
+  app.config.globalProperties.$tempImage = tempImage;
 
   app.use(icons);
 
@@ -28,7 +34,7 @@ export default function (App) {
 
   app.use(vFull);
 
-  app.use(elementPlus);
+  app.use(VueScreen, 'tailwind');
 
   return app;
 }

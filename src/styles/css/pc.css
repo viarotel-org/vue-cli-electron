@@ -1,4 +1,5 @@
 @layer base {
+
   html,
   body {
     @apply overflow-x-hidden scrollbar-beautiful;
@@ -7,38 +8,17 @@
   svg {
     @apply inline-block align-baseline;
   }
-
-  img {
-    position: relative;
-  }
-  img::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    /* background-color: #e0e0e0; */
-    background: #e0e0e0 url("~@/assets/images/temp-image.png") center / 60%
-      no-repeat;
-  }
 }
 
 @layer components {
   @screen sm {
     .scrollbar-beautiful::-webkit-scrollbar {
-      width: 10px !important;
-      height: 10px !important;
       -webkit-appearance: none;
+      @apply !w-px-10 !h-px-10;
     }
 
     .scrollbar-beautiful::-webkit-scrollbar-thumb {
-      height: 5px;
-      border-radius: 6px;
-      -webkit-border-radius: 6px;
-      background-clip: padding-box;
-      @apply bg-gray-300 border border-solid border-transparent;
+      @apply bg-gray-200 border-2 border-solid border-transparent rounded-full bg-clip-padding;
     }
 
     .scrollbar-beautiful:hover::-webkit-scrollbar-thumb {
