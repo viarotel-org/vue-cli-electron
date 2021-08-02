@@ -24,7 +24,6 @@
   </div>
 
   <ViaDragBars
-    class=""
     :width="dragBarsWidth"
   />
 </template>

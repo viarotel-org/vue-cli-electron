@@ -2,13 +2,16 @@
   <div class="">
     <div
       class="relative transition-all group active:scale-95"
+      :style="{
+        width: sizeData.image,
+      }"
       :class="[height]"
     >
       <ViaImage
-        :src="coverData.image"
+        :src="image"
         alt=""
         class="!absolute inset-0 cursor-pointer"
-        :class="[rounded]"
+        :style="{ ...rounded }"
       />
       <div
         class="
@@ -18,9 +21,9 @@
           !top-3
           2xl:!top-6
         "
-        :class="[rounded]"
         :style="{
-          backgroundImage: `url(${coverData.image})`,
+          backgroundImage: `url(${image})`,
+          ...rounded,
         }"
       ></div>
       <div
@@ -54,24 +57,23 @@
       </div>
     </div>
     <div
-      class="
-        line-clamp-2
-        min-h-[1.75rem]
-        cursor-pointer
-        hover:underline
-        text-lg
-        font-bold
-        mt-4
-      "
-      :title="coverData.title"
+      class="line-clamp-2 min-h-[1em] cursor-pointer hover:underline font-bold"
+      :style="{
+        fontSize: sizeData.title,
+        marginTop: sizeData.gap,
+      }"
+      :title="title"
     >
-      {{ coverData.title }}
+      {{ title }}
     </div>
     <div
-      class="line-clamp-2 min-h-[1.25rem] text-sm text-gray-800"
-      :title="coverData.desc"
+      :style="{
+        fontSize: sizeData.desc,
+      }"
+      class="line-clamp-2 min-h-[1em] text-gray-800"
+      :title="desc"
     >
-      {{ coverData.desc }}
+      {{ desc }}
     </div>
   </div>
 </template>
@@ -86,20 +88,46 @@ export default {
       type: String,
       default: 'square', // square rounded rectangle
     },
-    data: {
-      type: Object,
-      default: () => {},
+    size: {
+      type: String,
+      default: 'auto', // medium | small | mini | auto
+    },
+    image: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    desc: {
+      type: String,
+      default: '',
     },
   },
   computed: {
+    sizeModel() {
+      const tailwind = this.$tailwind.theme;
+      const spacing = tailwind.spacing;
+      return {
+        auto: {
+          image: spacing.full,
+          rounded: tailwind.borderRadius['2xl'],
+          title: tailwind.fontSize.lg,
+          desc: tailwind.fontSize.sm,
+          gap: spacing[4],
+        },
+      };
+    },
+    sizeData() {
+      return this.sizeModel[this.size];
+    },
     height() {
       return this.type === 'rectangle' ? 'pb-[61.8%]' : 'pb-[100%]';
     },
     rounded() {
-      return this.type === 'rounded' ? 'rounded-full' : 'rounded-2xl';
-    },
-    coverData() {
-      return this.data;
+      const value = this.type === 'rounded' ? '50%' : this.sizeData.rounded;
+      return { borderRadius: value };
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex space-x-4 h-58">
+  <div class="flex space-x-8 h-58">
     <div class="flex-1 w-1">
       <Recommend class="h-full" />
     </div>

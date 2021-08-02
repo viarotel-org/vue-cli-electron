@@ -5,7 +5,7 @@
       <div
         v-for="(item, index) of sortData"
         :key="index"
-        class="px-5 py-2 mb-5 mr-5 text-xl font-bold cursor-pointer  rounded-xl active:scale-95 active:shadow-inner"
+        class="px-5 py-2 mb-5 mr-5 text-xl font-bold cursor-pointer rounded-xl active:scale-95 active:shadow-inner"
         :class="
           sortActive === index
             ? 'bg-red-50 text-red-600'
@@ -30,7 +30,7 @@
         </div>
         <ViaGrid
           :cols="moreSortCols"
-          class="flex-1 ml-10 -translate-y-1"
+          class="flex-1 ml-10 -translate-y-px-2"
           gap-y="8px"
         >
           <ViaGridItem
@@ -38,7 +38,7 @@
             :key="iIndex"
           >
             <div
-              class="inline-block px-5 py-2 text-lg cursor-pointer  rounded-xl active:scale-95 hover:bg-red-50 hover:text-red-600"
+              class="inline-block px-5 py-2 text-lg cursor-pointer rounded-xl active:scale-95 hover:bg-red-50 hover:text-red-600"
               :class="
                 checkSortData(iItem.label).isExist
                   ? 'text-red-600 active:shadow-inner'
@@ -52,7 +52,7 @@
         </ViaGrid>
       </div>
     </div>
-    <ViaCoverGroup
+    <ViaCoverColGroup
       cols="5"
       gap="24px"
       class="pt-6"
@@ -81,11 +81,11 @@
 <script>
 import savePosition from '@/mixins/savePosition';
 import { ViaGrid, ViaGridItem } from '@/components/ViaGrid';
-import ViaCoverGroup from '@/views/__components__/ViaCoverGroup';
+import ViaCoverColGroup from '@/views/__components__/ViaCoverColGroup';
 
 export default {
   name: 'Found',
-  components: { ViaGrid, ViaGridItem, ViaCoverGroup },
+  components: { ViaGrid, ViaGridItem, ViaCoverColGroup },
   mixins: [savePosition],
   data() {
     return {

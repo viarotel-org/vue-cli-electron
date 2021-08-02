@@ -10444,6 +10444,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.nlark.com/uuid/download/uuid-3.4.0.tgz?cache=0&sync_timestamp=1622213086354&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fuuid%2Fdownload%2Fuuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
 
+v-contextmenu@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.nlark.com/v-contextmenu/download/v-contextmenu-3.0.0.tgz#d20d3beec9cd0cb18befd231425bce7e650221e4"
+  integrity sha1-0g077snNDLGL79IxQlvOfmUCIeQ=
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.nlark.com/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"

@@ -2,6 +2,7 @@
 @import "./base.css";
 @import "./pc.css";
 @import "./vue-slider.css";
+@import "./v-contextmenu.css";
 /* @import "./element-ui.css"; */
 
 @layer components {

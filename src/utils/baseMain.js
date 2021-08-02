@@ -22,11 +22,17 @@ import {
 
 import VueScreen from 'vue-screen';
 
+import getFullTailwindConfig from '@/plugins/getFullTailwindConfig';
+
+import contentmenu from 'v-contextmenu';
+import 'v-contextmenu/dist/themes/default.css';
+
 export default function (App) {
   const app = createApp(App);
 
   app.config.globalProperties.$ipcRenderer = ipcRenderer();
   app.config.globalProperties.$tempImage = tempImage;
+  app.config.globalProperties.$tailwind = getFullTailwindConfig();
 
   app.use(icons);
 
@@ -35,6 +41,8 @@ export default function (App) {
   app.use(vFull);
 
   app.use(VueScreen, 'tailwind');
+
+  app.use(contentmenu);
 
   return app;
 }

@@ -19,6 +19,7 @@
     "lodash-es": "^4.17.21",
     "qs": "^6.10.1",
     "store": "^2.0.12",
+    "v-contextmenu": "^3.0.0",
     "vue": "^3.0.0",
     "vue-router": "4",
     "vue-screen": "^2.1.0-alpha.5",

@@ -10,7 +10,6 @@
           backgroundImage: `url(${coverImage})`,
         }"
       ></div>
-      <div class="absolute inset-x-0 h-10 app-region-drag"></div>
       <div
         class="absolute z-10 w-12 h-12 top-7 right-7 button-base hover:bg-opacity-10 opacity-60 hover:opacity-100"
         @click="$emit('update:modelValue', !modelValue)"
@@ -181,9 +180,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.app-region-drag {
-  -webkit-app-region: drag;
-}
 .slide-up-enter-active,
 .slide-up-leave-active {
   @apply transition-transform duration-[400ms];

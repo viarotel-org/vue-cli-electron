@@ -19,9 +19,9 @@ export function tempImage(width, height) {
     height = _random(50, 1000);
   }
 
-  let url = `http://placekitten.com/${width}/`;
+  // let url = `http://placekitten.com/${width}/`;
   // let url = `https://dummyimage.com/${width}x`;
-  // let url = `http://lorempixel.com/${width}/`;
+  let url = `http://lorempixel.com/${width}/`;
   if (height) {
     url += height;
   } else {

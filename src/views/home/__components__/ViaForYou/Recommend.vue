@@ -12,7 +12,7 @@
         leading-[1.15]
         tracking-widest
         text-white text-7xl
-        ml-10
+        ml-6
         opacity-90
         hover:opacity-100
         button-rotate-bigger
@@ -25,8 +25,8 @@
     <div
       class="
         absolute
-        bottom-8
-        right-8
+        bottom-6
+        right-6
         w-14
         h-14
         flex

@@ -7,9 +7,12 @@
       v-for="(item, index) in coverGroupData"
       :key="index"
     >
-      <ViaCover
-        v-bind="type ? { type } : {}"
-        :data="item"
+      <ViaCoverCol
+        v-bind="{
+          ...(type ? { type } : {}),
+          ...(size ? { size } : {}),
+          ...item,
+        }"
         class=""
       />
     </ViaGridItem>
@@ -18,15 +21,16 @@
 
 <script>
 import { ViaGrid, ViaGridItem } from '@/components/ViaGrid';
-import ViaCover from '@/views/__components__/ViaCover';
+import ViaCoverCol from '@/views/__components__/ViaCoverCol';
 
 export default {
   components: {
     ViaGrid,
     ViaGridItem,
-    ViaCover,
+    ViaCoverCol,
   },
   props: {
+    size: String,
     type: String,
     data: {
       type: Array,

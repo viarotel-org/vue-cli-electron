@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white  bg-opacity-80 backdrop-filter backdrop-saturate-150 backdrop-blur-lg"
+    class="bg-white bg-opacity-80 backdrop-filter backdrop-saturate-150 backdrop-blur-lg"
     @click="$emit('update:isPlayInfo', !isPlayInfo)"
   >
     <vue-slider
@@ -10,9 +10,9 @@
       drag-on-click
       :lazy="true"
       :silent="true"
-      class="!pt-0 theme-red"
+      class="!py-0 theme-red"
     ></vue-slider>
-    <div class="flex items-center pb-2 px-resize">
+    <div class="flex items-center py-2 px-resize">
       <div class="flex items-center justify-start w-1 flex-grow-2">
         <div class="flex items-center">
           <img
