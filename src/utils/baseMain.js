@@ -12,6 +12,7 @@ import store from '@/store';
 
 import {
   vFull,
+  vObserver,
 } from '@/directive';
 
 import '@/styles/css/index.css';
@@ -39,6 +40,7 @@ export default function (App) {
   app.use(store);
 
   app.use(vFull);
+  app.use(vObserver);
 
   app.use(VueScreen, 'tailwind');
 

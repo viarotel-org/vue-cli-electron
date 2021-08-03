@@ -1,6 +1,6 @@
 <template>
-  <div class="pb-8">
-    <div class="flex items-center mt-6">
+  <div class="">
+    <div class="flex items-center">
       <ViaImage
         :src="$tempImage()"
         class="rounded-full w-14 h-14 button-rotate-bigger"

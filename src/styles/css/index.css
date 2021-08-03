@@ -10,9 +10,11 @@
     @apply flex items-center justify-center flex-shrink-0 transition-all transform cursor-pointer rounded-xl hover:bg-gray-100 active:shadow-inner active:scale-95 active:text-red-600;
   }
 
+
   .button-rotate-bigger {
-    @apply hover:-rotate-1 hover:scale-105 hover:shadow-md active:scale-100 transition-all duration-300 cursor-pointer ;
+    @apply hover:-rotate-1 hover:scale-105 hover:shadow-md active:scale-100 transition-all duration-300 cursor-pointer;
   }
+
 
   .px-resize {
     @apply px-[5vw] xl:px-[10vw];

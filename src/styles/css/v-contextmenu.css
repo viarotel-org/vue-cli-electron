@@ -1,6 +1,6 @@
 @layer components {
   .v-contextmenu {
-    @apply !px-2 !rounded-lg;
+    @apply !px-2 !rounded-lg !bg-white !bg-opacity-90 !backdrop-filter !backdrop-saturate-150 !backdrop-blur-lg !font-bold;
     .v-contextmenu-item {
       @apply !px-4 py-3 hover:!text-red-600 hover:!bg-red-50 !rounded-lg;
     }

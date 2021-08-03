@@ -1,7 +1,10 @@
 <template>
   <ViaGrid
     class="via-cover-group"
-    v-bind="$attrs"
+    v-bind="{
+      cols: 1,
+      ...$attrs,
+    }"
   >
     <ViaGridItem
       v-for="(item, index) in coverGroupData"
@@ -17,7 +20,7 @@
         class="w-1 flex-grow-3"
       />
       <div
-        class="w-1 mx-8 text-lg text-gray-700 truncate cursor-pointer flex-grow-2 hover:underline"
+        class="w-1 mx-8 text-lg text-gray-700 truncate cursor-pointer  flex-grow-2 hover:underline"
       >
         {{ item.desc }}
       </div>

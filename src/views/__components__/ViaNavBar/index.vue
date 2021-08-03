@@ -45,11 +45,23 @@
         />
       </div>
       <img
+        v-contextmenu:contextmenu="{ trigger: 'click' }"
         :src="$tempImage(32)"
         alt=""
         class="transition-all rounded-full cursor-pointer w-9 h-9 opacity-80 hover:opacity-100 hover:animate-spin active:scale-95"
       />
     </div>
+    <v-contextmenu ref="contextmenu">
+      <template
+        v-for="(item, index) of menuModel"
+        :key="index"
+      >
+        <v-contextmenu-item @click="menuActive = index">
+          {{ item.label }}
+        </v-contextmenu-item>
+        <v-contextmenu-divider v-if="item.divider" />
+      </template>
+    </v-contextmenu>
   </div>
 </template>
 
@@ -73,9 +85,36 @@ export default {
         },
       ],
       tabsActive: 0,
+      isLogin: false,
+      menuActive: 0,
     };
   },
-  computed: {},
+  computed: {
+    menuModel() {
+      return [
+        {
+          label: '设置',
+          value: 'setting',
+        },
+        {
+          ...(this.isLogin
+            ? {
+              label: '退出',
+              value: 'logout',
+            }
+            : {
+              label: '登录',
+              value: 'login',
+            }),
+          divider: true,
+        },
+        {
+          label: 'GitHub仓库',
+          value: 'github',
+        },
+      ];
+    },
+  },
   watch: {
     $route({ name }) {
       if (name) {

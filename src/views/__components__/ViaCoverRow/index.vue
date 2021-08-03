@@ -11,13 +11,13 @@
         :style="roundedStyles"
       />
       <div
-        v-if="hoverShadow"
+        v-if="showShadow"
         class="
           scale-x-[92%] scale-y-[96%]
           opacity-0
-          group-hover:shadow-image-base
           !top-3
           2xl:!top-6
+          group-hover:shadow-image-base
         "
         :style="{
           backgroundImage: `url(${image})`,
@@ -25,7 +25,7 @@
         }"
       ></div>
       <div
-        v-if="hoverIcon"
+        v-if="showIcon"
         class="
           absolute
           flex
@@ -51,36 +51,44 @@
       >
         <ViaSvgIcon
           name="play"
-          class="!w-2/5 !h-2/5"
+          class="!w-2/5 !h-2/5 mt-px ml-px-3"
         />
       </div>
     </div>
-    <div
-      class="flex-1 overflow-hidden"
-      :style="{ ...gapXStyles }"
-    >
+    <slot>
       <div
-        class="truncate min-h-[1.25em] cursor-pointer hover:underline font-bold"
-        :style="{ ...titleSizeStyles }"
-        :title="title"
+        class="flex-1 overflow-hidden"
+        :style="{ ...gapXStyles }"
       >
-        {{ title }}
+        <div
+          class="
+            truncate
+            min-h-[1.25em]
+            cursor-pointer
+            hover:underline
+            font-bold
+          "
+          :style="{ ...titleSizeStyles }"
+          :title="title"
+        >
+          {{ title }}
+        </div>
+        <div
+          v-if="desc"
+          class="
+            truncate
+            min-h-[1.25em]
+            text-gray-700
+            hover:underline
+            cursor-pointer
+          "
+          :title="desc"
+          :style="{ ...descSizeStyles, ...gapYStyles }"
+        >
+          {{ desc }}
+        </div>
       </div>
-      <div
-        v-if="desc"
-        class="
-          truncate
-          min-h-[1.25em]
-          text-gray-700
-          hover:underline
-          cursor-pointer
-        "
-        :title="desc"
-        :style="{ ...descSizeStyles, ...gapYStyles }"
-      >
-        {{ desc }}
-      </div>
-    </div>
+    </slot>
   </div>
 </template>
 
@@ -111,11 +119,11 @@ export default {
       type: String,
       default: '',
     },
-    hoverShadow: {
+    showShadow: {
       type: Boolean,
       default: true,
     },
-    hoverIcon: {
+    showIcon: {
       type: Boolean,
       default: false,
     },
@@ -128,6 +136,14 @@ export default {
       const tailwind = this.$tailwind.theme;
       const spacing = tailwind.spacing;
       return {
+        biger: {
+          image: spacing[84],
+          rounded: tailwind.borderRadius['2xl'],
+          title: tailwind.fontSize.xl,
+          desc: tailwind.fontSize.base,
+          gapX: spacing[6],
+          gapY: spacing[1],
+        },
         medium: {
           image: '',
           rounded: '',

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="py-6">
+    <div class="pb-6">
       <ViaTitle
         name="by Apple Music"
         class=""
@@ -58,7 +58,7 @@
         :data="coverGroupData"
       />
     </div>
-    <div class="py-6">
+    <div class="pt-6">
       <ViaTitle
         name="排行榜"
         desc="查看全部"

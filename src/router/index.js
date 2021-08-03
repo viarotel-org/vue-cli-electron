@@ -6,7 +6,7 @@ import {
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/album',
   },
   {
     path: '/home',
@@ -31,6 +31,12 @@ const routes = [
     meta: {
       keepAlive: true,
     },
+  },
+  {
+    path: '/album',
+    name: 'album',
+    component: () => import('@/views/album/index.vue'),
+    meta: {},
   },
 ];
 

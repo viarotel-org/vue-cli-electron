@@ -14,6 +14,7 @@
           ...item,
         }"
         class=""
+        @click="$router.push({ path: '/album' })"
       />
     </ViaGridItem>
   </ViaGrid>

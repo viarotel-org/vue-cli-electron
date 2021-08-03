@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="mt-6 text-6xl font-bold">发现</div>
+    <div class="text-6xl font-bold">发现</div>
     <div class="flex flex-wrap mt-12">
       <div
         v-for="(item, index) of sortData"
@@ -58,7 +58,7 @@
       class="pt-6"
       :data="coverGroupData"
     />
-    <div class="flex justify-center py-8">
+    <div class="flex justify-center pt-8">
       <div
         class="
           inline-block

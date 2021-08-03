@@ -1,11 +1,12 @@
 <template>
   <div
     ref="scrollContainer"
+    v-observer.childList.subtree="onObserver"
     class="absolute inset-0 h-full overflow-x-hidden overflow-y-auto scrollbar-none"
   >
     <ViaHeader class="sticky inset-x-0 top-0 z-10" />
 
-    <div class="relative min-h-screen px-resize">
+    <div class="relative min-h-screen py-8 px-resize">
       <ViaRouterView class="" />
     </div>
 
@@ -23,9 +24,7 @@
     />
   </div>
 
-  <ViaDragBars
-    :width="dragBarsWidth"
-  />
+  <ViaDragBars :width="dragBarsWidth" />
 </template>
 
 <script>
@@ -56,12 +55,12 @@ export default {
       return this.isPlayInfo ? '100%' : 'calc(100% - 3 * 3.5rem)';
     },
   },
-  mounted() {
-    this.$watch('$route', () => {
+  mounted() {},
+  methods: {
+    onObserver() {
       this.$refs.viaScrollbar.refresh();
-    });
+    },
   },
-  methods: {},
 };
 </script>
 
