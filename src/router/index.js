@@ -6,7 +6,7 @@ import {
 const routes = [
   {
     path: '/',
-    redirect: '/album',
+    redirect: '/home',
   },
   {
     path: '/home',
@@ -36,6 +36,30 @@ const routes = [
     path: '/album',
     name: 'album',
     component: () => import('@/views/album/index.vue'),
+    meta: {},
+  },
+  {
+    path: '/songlist',
+    name: 'songlist',
+    component: () => import('@/views/songlist/index.vue'),
+    meta: {},
+  },
+  {
+    path: '/singer',
+    name: 'singer',
+    component: () => import('@/views/singer/index.vue'),
+    meta: {},
+  },
+  {
+    path: '/radar',
+    name: 'radar',
+    component: () => import('@/views/radar/index.vue'),
+    meta: {},
+  },
+  {
+    path: '/recommend',
+    name: 'recommend',
+    component: () => import('@/views/recommend/index.vue'),
     meta: {},
   },
 ];

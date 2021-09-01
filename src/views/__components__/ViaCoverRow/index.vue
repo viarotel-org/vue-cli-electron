@@ -145,10 +145,12 @@ export default {
           gapY: spacing[1],
         },
         medium: {
-          image: '',
-          rounded: '',
-          title: '',
-          desc: '',
+          image: spacing[36],
+          rounded: tailwind.borderRadius.xl,
+          title: tailwind.fontSize.xl,
+          desc: tailwind.fontSize.base,
+          gapX: spacing[8],
+          gapY: spacing[2],
         },
         small: {
           image: spacing[14],

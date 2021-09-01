@@ -1,5 +1,8 @@
 <template>
-  <div class="relative flex items-center overflow-hidden bg-gray-700 rounded-2xl">
+  <div
+    class="relative flex items-center overflow-hidden bg-gray-700 cursor-pointer  rounded-2xl"
+    @click="$router.push('/recommend')"
+  >
     <img
       :src="coverImage"
       class="image-animate-move"

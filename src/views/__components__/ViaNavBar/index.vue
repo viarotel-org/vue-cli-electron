@@ -5,12 +5,14 @@
         <ViaSvgIcon
           name="arrow-left"
           class="text-3xl"
+          @click="$router.back()"
         />
       </div>
       <div class="w-12 h-12 button-base">
         <ViaSvgIcon
           name="arrow-right"
           class="text-3xl"
+          @click="$router.forward()"
         />
       </div>
     </div>
@@ -26,29 +28,15 @@
       </div>
     </div>
     <div class="flex items-center justify-end flex-1 space-x-4">
-      <div
-        class="flex items-center px-3 py-1 transition-all duration-300 rounded-lg bg-opacity-80"
-        :class="
-          inputFocus ? 'bg-red-50 text-red-600' : 'bg-gray-100 text-gray-500'
-        "
-      >
-        <ViaSvgIcon
-          name="search"
-          class="text-lg transform"
-        />
-        <input
-          type="text"
-          class="ml-2 text-lg font-bold placeholder-gray-700 bg-transparent w-44"
-          :placeholder="inputFocus ? '' : '搜索'"
-          @focus="inputFocus = true"
-          @blur="inputFocus = false"
-        />
-      </div>
+      <ViaSearch
+        v-model="searchValue"
+        class=""
+      />
       <img
         v-contextmenu:contextmenu="{ trigger: 'click' }"
         :src="$tempImage(32)"
         alt=""
-        class="transition-all rounded-full cursor-pointer w-9 h-9 opacity-80 hover:opacity-100 hover:animate-spin active:scale-95"
+        class="transition-all rounded-full cursor-pointer  w-9 h-9 opacity-80 hover:opacity-100 hover:animate-spin active:scale-95"
       />
     </div>
     <v-contextmenu ref="contextmenu">
@@ -66,10 +54,13 @@
 </template>
 
 <script>
+import ViaSearch from '@/views/__components__/ViaSearch .vue';
+
 export default {
+  components: { ViaSearch },
   data() {
     return {
-      inputFocus: false,
+      searchValue: '',
       tabsData: [
         {
           label: '首页',

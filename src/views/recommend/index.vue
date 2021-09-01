@@ -1,104 +1,59 @@
 <template>
   <div class="">
-    <div class="pb-6">
-      <ViaTitle
-        name="by Apple Music"
-        class=""
+    <div class="flex flex-col items-center pt-42">
+      <div class="font-bold text-red-600 text-8xl animation-leading-4">
+        每日歌曲推荐
+      </div>
+      <div class="mt-8 text-xl animation-leading-1">
+        根据你的音乐口味生成 · 每天 <span class="font-bold">6:00 </span>更新
+      </div>
+    </div>
+    <div class="relative">
+      <ViaSearch
+        v-if="isSearch"
+        v-model="searchValue"
+        class="absolute right-0 top-10"
       />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        class="pt-6 pb-3"
-        :data="coverGroupData"
-        @click-item="onCoverColGroupItem({ type: 'songlist' })"
+      <ViaCoverRowGroup
+        cols="1"
+        :data="songData"
+        class="pt-36"
       />
     </div>
-    <div class="py-6">
-      <ViaTitle
-        name="推荐歌单"
-        desc="查看全部"
-        class=""
-      />
-      <ViaCoverColGroup
-        class="pt-6 pb-3"
-        cols="5"
-        gap="24px"
-        :data="coverGroupData"
-        @click-item="onCoverColGroupItem({ type: 'songlist' })"
-      />
-    </div>
-    <div class="py-6">
-      <ViaTitle
-        name="For You"
-        class=""
-      />
-      <ViaForYou class="pt-6 pb-3" />
-    </div>
-    <div class="py-6">
-      <ViaTitle
-        name="推荐艺人"
-        class=""
-      />
-      <ViaCoverColGroup
-        class="pt-6 pb-3"
-        cols="6"
-        gap="24px"
-        :data="coverGroupData"
-        type="rounded"
-        @click-item="onCoverColGroupItem({ type: 'singer' })"
-      />
-    </div>
-    <div class="py-6">
-      <ViaTitle
-        name="新专速递"
-        desc="查看全部"
-        class=""
-      />
-      <ViaCoverColGroup
-        class="pt-6 pb-3"
-        cols="5"
-        gap="24px"
-        :data="coverGroupData"
-        @click-item="onCoverColGroupItem({ type: 'album' })"
-      />
-    </div>
-    <div class="pt-6">
-      <ViaTitle
-        name="排行榜"
-        desc="查看全部"
-        class=""
-      />
-      <ViaCoverColGroup
-        class="pt-6 pb-3"
-        cols="5"
-        gap="24px"
-        :data="coverGroupData"
-        @click-item="onCoverColGroupItem({ type: 'songlist' })"
-      />
-    </div>
+    <v-contextmenu ref="contextmenu">
+      <template
+        v-for="(item, index) of moreModel"
+        :key="index"
+      >
+        <v-contextmenu-item @click="item.click">
+          {{ item.label }}
+        </v-contextmenu-item>
+        <v-contextmenu-divider v-if="item.divider" />
+      </template>
+    </v-contextmenu>
   </div>
 </template>
 
 <script>
-import savePosition from '@/mixins/savePosition';
-import ViaTitle from '@/views/__components__/ViaTitle';
-import ViaCoverColGroup from '@/views/__components__/ViaCoverColGroup';
-import ViaForYou from '@/views/home/__components__/ViaForYou';
+import ViaSearch from '@/views/__components__/ViaSearch .vue';
+import ViaCoverRowGroup from '@/views/__components__/ViaCoverRowGroup';
 
 export default {
-  name: 'Home',
-  components: { ViaTitle, ViaCoverColGroup, ViaForYou },
-  mixins: [savePosition],
-  data() {
-    return {};
+  name: 'Recommend',
+  components: {
+    ViaSearch,
+    ViaCoverRowGroup,
   },
-  computed: {
-    coverGroupData() {
-      return [
+  data() {
+    return {
+      isSearch: false,
+      searchValue: '',
+      songData: [
         {
           title: '今天从《声声慢》听起|私人雷达',
           desc: '根据你喜欢的单曲《最天使》',
           image: this.$tempImage(),
+          active: true,
         },
         {
           title:
@@ -166,54 +121,56 @@ export default {
           desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
           image: this.$tempImage(),
         },
+      ],
+    };
+  },
+  computed: {
+    moreModel() {
+      return [
         {
-          title:
-            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          image: this.$tempImage(),
+          label: '保存到音乐库',
+          value: 'saveToLibrarys',
+          click: this.saveToLibrarys,
+          divider: true,
         },
         {
-          title:
-            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          image: this.$tempImage(),
-        },
-        {
-          title:
-            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          image: this.$tempImage(),
-        },
-        {
-          title:
-            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          image: this.$tempImage(),
+          label: '歌单内搜索',
+          value: 'searchCurrentSongSheet',
+          click: this.showSearch,
         },
       ];
-    },
-  },
-  mounted() {},
-  methods: {
-    onCoverColGroupItem({ type }) {
-      switch (type) {
-        case 'album':
-          this.$router.push({ path: '/album' });
-          break;
-        case 'songlist':
-          this.$router.push({ path: '/songlist' });
-          break;
-        case 'singer':
-          this.$router.push({ path: '/singer' });
-          break;
-        case 'radar':
-          this.$router.push({ path: '/radar' });
-          break;
-      }
     },
   },
 };
 </script>
 
-<style>
+<style lang="postcss" scoped>
+@keyframes keyframes-leading-4 {
+  from {
+    letter-spacing: 0px;
+  }
+
+  to {
+    letter-spacing: 4px;
+  }
+}
+
+@keyframes keyframes-leading-1 {
+  from {
+    letter-spacing: 0px;
+  }
+
+  to {
+    letter-spacing: 1px;
+  }
+}
+
+.animation-leading-4 {
+  animation-duration: 0.8s;
+  animation-name: keyframes-leading-4;
+}
+.animation-leading-1 {
+  animation-duration: 0.8s;
+  animation-name: keyframes-leading-1;
+}
 </style>

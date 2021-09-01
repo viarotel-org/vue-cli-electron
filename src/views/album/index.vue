@@ -8,12 +8,12 @@
       class="!items-stretch"
     >
       <div class="ml-16">
-        <div class="mt-1 text-4xl font-bold line-clamp-3">
+        <div class="text-6xl font-bold leading-tight line-clamp-3">
           古典风格法国山豆根山豆根法国岁的法国反对风格士大夫
         </div>
         <div class="mt-8">
           <div class="text-lg">
-            <span class="">Playlist by</span>
+            <span class="">Single by Pond</span>
             <span class="ml-1 font-bold hover:underline">云音乐官方歌单</span>
           </div>
           <div class="text-gray-700">最后更新于 2021年05月08日 · 35 首歌</div>
@@ -39,7 +39,10 @@
               class="text-xl"
             />
           </div>
-          <div class="w-12 h-12 button-scale gray">
+          <div
+            v-contextmenu:contextmenu="{ trigger: 'click' }"
+            class="w-12 h-12 button-scale gray"
+          >
             <ViaSvgIcon
               name="more"
               class="text-xl"
@@ -48,23 +51,59 @@
         </div>
       </div>
     </ViaCoverRow>
-    <ViaCoverRowGroup
-      :data="listData"
+    <SongGroup
+      :data="songData"
       class="mt-16"
     />
+    <div class="py-8 text-sm text-gray">
+      <div class="">发行于 2021年09月01日</div>
+      <div class="mt-1">© 海蝶音乐</div>
+    </div>
+    <div class="py-6 border-t">
+      <ViaTitle
+        name="More by 孔令奇"
+        class=""
+      />
+      <ViaCoverColGroup
+        class="pt-6 pb-3"
+        cols="5"
+        gap="24px"
+        :data="albumData"
+        @click-item="onAlbumInfo({ id: 'album' })"
+      />
+    </div>
+    <v-contextmenu ref="contextmenu">
+      <template
+        v-for="(item, index) of moreModel"
+        :key="index"
+      >
+        <v-contextmenu-item @click="item.click">
+          {{ item.label }}
+        </v-contextmenu-item>
+        <v-contextmenu-divider v-if="item.divider" />
+      </template>
+    </v-contextmenu>
   </div>
 </template>
 
 <script>
+import ViaTitle from '@/views/__components__/ViaTitle';
 import ViaCoverRow from '@/views/__components__/ViaCoverRow';
-import ViaCoverRowGroup from '@/views/__components__/ViaCoverRowGroup';
+import ViaCoverColGroup from '@/views/__components__/ViaCoverColGroup';
+import SongGroup from './__components__/SongGroup';
 
 export default {
   name: 'Album',
-  components: { ViaCoverRow, ViaCoverRowGroup },
-  computed: {
-    listData() {
-      return [
+  components: {
+    ViaTitle,
+    ViaCoverRow,
+    ViaCoverColGroup,
+    SongGroup,
+  },
+  data() {
+    return {
+      moreActive: 0,
+      albumData: [
         {
           title: '今天从《声声慢》听起|私人雷达',
           desc: '根据你喜欢的单曲《最天使》',
@@ -94,11 +133,14 @@ export default {
           desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
           image: this.$tempImage(),
         },
+      ],
+      songData: [
         {
-          title:
-            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
-          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          title: '今天从《声声慢》听起|私人雷达',
+          desc: '根据你喜欢的单曲《最天使》',
           image: this.$tempImage(),
+          active: true,
+          like: true,
         },
         {
           title:
@@ -135,8 +177,77 @@ export default {
             '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
           desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
           image: this.$tempImage(),
+        },
+        {
+          title:
+            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          image: this.$tempImage(),
+        },
+        {
+          title:
+            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          image: this.$tempImage(),
+        },
+        {
+          title:
+            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          image: this.$tempImage(),
+        },
+        {
+          title:
+            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          image: this.$tempImage(),
+        },
+        {
+          title:
+            '今天从《声声慢》听起|私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
+          image: this.$tempImage(),
+        },
+      ],
+    };
+  },
+  computed: {
+    moreModel() {
+      return [
+        {
+          label: '保存到音乐库',
+          value: 'saveToLibrarys',
+          click: this.saveToLibrarys,
+          divider: true,
+        },
+        {
+          label: '添加到歌单',
+          value: 'addSonglist',
+          click: this.addSonglist,
+        },
+        {
+          label: '复制链接',
+          value: 'copySongUrl',
+          click: this.copySongUrl,
         },
       ];
+    },
+    moreActiveData() {
+      return this.moreModel[this.moreActive];
+    },
+  },
+  methods: {
+    onAlbumInfo({ id }) {
+      this.$router.push({ path: '/album', query: { id } });
+    },
+    saveToLibrarys() {
+      console.log('saveToLibrarys');
+    },
+    addSonglist() {
+      console.log('addSonglist');
+    },
+    copySongUrl() {
+      console.log('copySongUrl');
     },
   },
 };

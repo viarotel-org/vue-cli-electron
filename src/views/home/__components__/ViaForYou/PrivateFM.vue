@@ -1,5 +1,8 @@
 <template>
-  <div class="relative flex p-6 overflow-hidden text-white rounded-2xl">
+  <div
+    class="relative flex p-6 overflow-hidden text-white rounded-2xl"
+    @click="$router.push('/radar')"
+  >
     <div
       class="bg-gray-700 bg-filter-base"
       :style="{

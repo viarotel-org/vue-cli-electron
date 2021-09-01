@@ -1,6 +1,6 @@
 <template>
   <ViaGrid
-    class="via-cover-group"
+    class="via-cover-col-group"
     v-bind="$attrs"
   >
     <ViaGridItem
@@ -14,7 +14,7 @@
           ...item,
         }"
         class=""
-        @click="$router.push({ path: '/album' })"
+        @click="$emit('click-item', item)"
       />
     </ViaGridItem>
   </ViaGrid>
@@ -38,6 +38,7 @@ export default {
       default: () => [],
     },
   },
+  emits: ['click-item'],
   computed: {
     coverGroupData() {
       return this.data;

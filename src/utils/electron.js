@@ -37,7 +37,7 @@ export async function showMessageBox(content, actions = [], {
     buttons: actions.map((item) => item.label),
     ...moreOptions,
   });
-  const click = actions[index].click;
+  const click = actions[index] && actions[index].click ? actions[index].click : false;
   if (index !== -1 && click) click(index);
 }
 

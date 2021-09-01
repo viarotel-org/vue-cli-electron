@@ -60,5 +60,6 @@ module.exports = {
     'guard-for-in': 'off',
     'eqeqeq': 'off',
     'no-unused-expressions': 'off',
+    'import/extensions': 'off',
   },
 }

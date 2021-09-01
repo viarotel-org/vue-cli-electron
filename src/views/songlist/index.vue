@@ -5,33 +5,18 @@
       size="biger"
       show-icon
       show-shadow
-      type="rounded"
       class="!items-stretch"
     >
       <div class="ml-16">
         <div class="text-6xl font-bold leading-tight line-clamp-3">
-          古典风格法国山豆根山豆根法
+          古典风格法国山豆根山豆根法国岁的法国反对风格士大夫
         </div>
         <div class="mt-8">
           <div class="text-lg">
-            <span class="font-bold hover:underline">艺人</span>
+            <span class="">Playlist by</span>
+            <span class="ml-1 font-bold hover:underline">云音乐官方歌单</span>
           </div>
-          <div class="mt-1 text-gray-700">
-            <a
-              href=""
-              class=""
-            >2840 首歌</a>
-            ·
-            <a
-              href=""
-              class=""
-            >118 张专辑</a>
-            ·
-            <a
-              href=""
-              class=""
-            >197 个 MV</a>
-          </div>
+          <div class="text-gray-700">最后更新于 2021年05月08日 · 35 首歌</div>
         </div>
         <div
           class="mt-8 text-gray-700 transition-all line-clamp-3 hover:text-gray-700"
@@ -48,7 +33,12 @@
             />
             <span class="ml-2 text-lg font-bold">播放</span>
           </div>
-          <div class="w-20 h-12 text-xl font-bold button-scale gray">关注</div>
+          <div class="w-12 h-12 button-scale gray">
+            <ViaSvgIcon
+              name="heart"
+              class="text-xl"
+            />
+          </div>
           <div
             v-contextmenu:contextmenu="{ trigger: 'click' }"
             class="w-12 h-12 button-scale gray"
@@ -61,81 +51,16 @@
         </div>
       </div>
     </ViaCoverRow>
-    <div class="mt-16">
-      <ViaTitle name="最新发布" />
-      <div class="flex items-center justify-between mt-6">
-        <ViaCoverRow
-          :image="$tempImage()"
-          size="medium"
-          show-icon
-        >
-          <div class="ml-6">
-            <div class="text-xl font-bold line-clamp-2">
-              星月物语Zodiac星月物语Zodiac星月物语Zodiac星月物语Zodiac
-            </div>
-            <div class="mt-2 text-gray-700">2021年08月13日</div>
-            <div class="text-sm text-gray-700">Album · 12 首歌</div>
-          </div>
-        </ViaCoverRow>
-        <ViaCoverRow
-          :image="$tempImage()"
-          size="medium"
-          type="rectangle"
-          show-icon
-        >
-          <div class="ml-6">
-            <div class="text-xl font-bold line-clamp-2">
-              星月物语Zodiac星月物语Zodiac星月物语Zodiac
-            </div>
-            <div class="mt-2 text-gray-700">2021年08月13日</div>
-            <div class="text-sm text-gray-700">Album · 12 首歌</div>
-          </div>
-        </ViaCoverRow>
-      </div>
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="热门歌曲" />
+    <div class="relative">
+      <ViaSearch
+        v-if="isSearch"
+        v-model="searchValue"
+        class="absolute right-0 top-10"
+      />
       <ViaCoverRowGroup
-        cols="3"
+        cols="1"
         :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="专辑" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="MVs" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="EP 和单曲" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="相似艺人" />
-      <ViaCoverColGroup
-        type="rounded"
-        cols="6"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
+        class="pt-24"
       />
     </div>
     <v-contextmenu ref="contextmenu">
@@ -155,37 +80,34 @@
 <script>
 import ViaCoverRow from '@/views/__components__/ViaCoverRow';
 import ViaCoverRowGroup from '@/views/__components__/ViaCoverRowGroup';
-import ViaCoverColGroup from '@/views/__components__/ViaCoverColGroup';
-import ViaTitle from '@/views/__components__/ViaTitle';
+import ViaSearch from '@/views/__components__/ViaSearch .vue';
 
 export default {
-  name: 'Singer',
-  components: {
-    ViaCoverRow,
-    ViaCoverRowGroup,
-    ViaCoverColGroup,
-    ViaTitle,
-  },
+  name: 'Album',
+  components: { ViaCoverRow, ViaCoverRowGroup, ViaSearch },
   data() {
     return {
       isSearch: false,
       searchValue: '',
-      moreActive: 0,
     };
   },
   computed: {
     moreModel() {
       return [
         {
-          label: '复制链接',
-          value: 'copyUrl',
-          click: this.copyUrl,
+          label: '保存到音乐库',
+          value: 'saveToLibrarys',
+          click: this.saveToLibrarys,
+          divider: true,
+        },
+        {
+          label: '歌单内搜索',
+          value: 'searchCurrentSongSheet',
+          click: this.showSearch,
         },
       ];
     },
-    moreActiveData() {
-      return this.moreModel[this.moreActive];
-    },
+
     listData() {
       return [
         {
@@ -264,8 +186,12 @@ export default {
     },
   },
   methods: {
-    copyUrl() {
-      console.log('copyUrl');
+    saveToLibrarys() {
+      console.log('saveToLibrarys');
+    },
+    showSearch() {
+      console.log('showSearch');
+      this.isSearch = !this.isSearch;
     },
   },
 };

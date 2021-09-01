@@ -1,141 +1,47 @@
 <template>
   <div class="">
-    <ViaCoverRow
-      :image="$tempImage()"
-      size="biger"
-      show-icon
-      show-shadow
-      type="rounded"
-      class="!items-stretch"
-    >
-      <div class="ml-16">
-        <div class="text-6xl font-bold leading-tight line-clamp-3">
-          古典风格法国山豆根山豆根法
+    <div class="flex flex-col items-center pt-42">
+      <div class="font-bold text-teal-500 text-8xl animation-leading-4 spc">
+        私人雷达
+      </div>
+      <div class="mt-8 text-xl animation-leading-1">
+        AI RADAR · 每日更新
+      </div>
+      <div class="flex items-center mt-8 space-x-6">
+        <div class="h-12 px-5 button-scale red">
+          <ViaSvgIcon
+            name="play"
+            class="text-xl"
+          />
+          <span class="ml-2 text-lg font-bold">播放</span>
         </div>
-        <div class="mt-8">
-          <div class="text-lg">
-            <span class="font-bold hover:underline">艺人</span>
-          </div>
-          <div class="mt-1 text-gray-700">
-            <a
-              href=""
-              class=""
-            >2840 首歌</a>
-            ·
-            <a
-              href=""
-              class=""
-            >118 张专辑</a>
-            ·
-            <a
-              href=""
-              class=""
-            >197 个 MV</a>
-          </div>
+        <div class="w-12 h-12 button-scale gray">
+          <ViaSvgIcon
+            name="heart"
+            class="text-xl"
+          />
         </div>
         <div
-          class="mt-8 text-gray-700 transition-all line-clamp-3 hover:text-gray-700"
+          v-contextmenu:contextmenu="{ trigger: 'click' }"
+          class="w-12 h-12 button-scale gray"
         >
-          黄家驹（1962年6月10日—1993年6月30日），出生于中国香港，中国香港男歌手、原创音乐人、吉他手、摇滚乐队Beyond的主唱、节奏吉他手及创队成员。
-          1983年以歌曲《大厦》出道，并组建Beyond乐队，担任主唱。1988年凭借专辑《秘密警察》在香港歌坛获得关注，其中由黄家驹创作的歌曲《大黄家驹（1962年6月10日—1993年6月30日），出生于中国香港，中国香港男歌手、原创音乐人、吉他手、摇滚乐队Beyond的主唱、节奏吉他手及创队成员。
-          1983年以歌曲《大厦》出道，并组建Beyond乐队，担任主唱。1988年凭借专辑《秘密警察》在香港歌坛获得关注，其中由黄家驹创作的歌曲《大
+          <ViaSvgIcon
+            name="more"
+            class="text-xl"
+          />
         </div>
-        <div class="flex items-center mt-8 space-x-6">
-          <div class="h-12 px-5 button-scale red">
-            <ViaSvgIcon
-              name="play"
-              class="text-xl"
-            />
-            <span class="ml-2 text-lg font-bold">播放</span>
-          </div>
-          <div class="w-20 h-12 text-xl font-bold button-scale gray">关注</div>
-          <div
-            v-contextmenu:contextmenu="{ trigger: 'click' }"
-            class="w-12 h-12 button-scale gray"
-          >
-            <ViaSvgIcon
-              name="more"
-              class="text-xl"
-            />
-          </div>
-        </div>
-      </div>
-    </ViaCoverRow>
-    <div class="mt-16">
-      <ViaTitle name="最新发布" />
-      <div class="flex items-center justify-between mt-6">
-        <ViaCoverRow
-          :image="$tempImage()"
-          size="medium"
-          show-icon
-        >
-          <div class="ml-6">
-            <div class="text-xl font-bold line-clamp-2">
-              星月物语Zodiac星月物语Zodiac星月物语Zodiac星月物语Zodiac
-            </div>
-            <div class="mt-2 text-gray-700">2021年08月13日</div>
-            <div class="text-sm text-gray-700">Album · 12 首歌</div>
-          </div>
-        </ViaCoverRow>
-        <ViaCoverRow
-          :image="$tempImage()"
-          size="medium"
-          type="rectangle"
-          show-icon
-        >
-          <div class="ml-6">
-            <div class="text-xl font-bold line-clamp-2">
-              星月物语Zodiac星月物语Zodiac星月物语Zodiac
-            </div>
-            <div class="mt-2 text-gray-700">2021年08月13日</div>
-            <div class="text-sm text-gray-700">Album · 12 首歌</div>
-          </div>
-        </ViaCoverRow>
       </div>
     </div>
-    <div class="mt-16">
-      <ViaTitle name="热门歌曲" />
+    <div class="relative">
+      <ViaSearch
+        v-if="isSearch"
+        v-model="searchValue"
+        class="absolute right-0 top-10"
+      />
       <ViaCoverRowGroup
-        cols="3"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="专辑" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="MVs" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="EP 和单曲" />
-      <ViaCoverColGroup
-        cols="5"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
-      />
-    </div>
-    <div class="mt-16">
-      <ViaTitle name="相似艺人" />
-      <ViaCoverColGroup
-        type="rounded"
-        cols="6"
-        gap="24px"
-        :data="listData"
-        class="pt-6"
+        cols="1"
+        :data="songData"
+        class="pt-36"
       />
     </div>
     <v-contextmenu ref="contextmenu">
@@ -153,41 +59,20 @@
 </template>
 
 <script>
-import ViaCoverRow from '@/views/__components__/ViaCoverRow';
+import ViaSearch from '@/views/__components__/ViaSearch .vue';
 import ViaCoverRowGroup from '@/views/__components__/ViaCoverRowGroup';
-import ViaCoverColGroup from '@/views/__components__/ViaCoverColGroup';
-import ViaTitle from '@/views/__components__/ViaTitle';
 
 export default {
-  name: 'Singer',
+  name: 'Radar',
   components: {
-    ViaCoverRow,
+    ViaSearch,
     ViaCoverRowGroup,
-    ViaCoverColGroup,
-    ViaTitle,
   },
   data() {
     return {
       isSearch: false,
       searchValue: '',
-      moreActive: 0,
-    };
-  },
-  computed: {
-    moreModel() {
-      return [
-        {
-          label: '复制链接',
-          value: 'copyUrl',
-          click: this.copyUrl,
-        },
-      ];
-    },
-    moreActiveData() {
-      return this.moreModel[this.moreActive];
-    },
-    listData() {
-      return [
+      songData: [
         {
           title: '今天从《声声慢》听起|私人雷达',
           desc: '根据你喜欢的单曲《最天使》',
@@ -260,12 +145,24 @@ export default {
           desc: '根据你喜欢的单曲《最天使》推荐私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达私人雷达',
           image: this.$tempImage(),
         },
-      ];
-    },
+      ],
+    };
   },
-  methods: {
-    copyUrl() {
-      console.log('copyUrl');
+  computed: {
+    moreModel() {
+      return [
+        {
+          label: '保存到音乐库',
+          value: 'saveToLibrarys',
+          click: this.saveToLibrarys,
+          divider: true,
+        },
+        {
+          label: '歌单内搜索',
+          value: 'searchCurrentSongSheet',
+          click: this.showSearch,
+        },
+      ];
     },
   },
 };
@@ -280,5 +177,35 @@ export default {
     @apply text-gray-800 bg-gray-100;
   }
   @apply hover:scale-105 active:scale-95 transition-all flex items-center justify-center rounded-lg cursor-pointer;
+}
+@keyframes keyframes-leading-4 {
+  from {
+    letter-spacing: 0px;
+  }
+
+  to {
+    letter-spacing: 4px;
+  }
+}
+
+@keyframes keyframes-leading-1 {
+  from {
+    letter-spacing: 0px;
+  }
+
+  to {
+    letter-spacing: 1px;
+  }
+}
+
+.animation-leading-4 {
+  animation-duration: 0.8s;
+  animation-name: keyframes-leading-4;
+  letter-spacing: 4px;
+}
+.animation-leading-1 {
+  animation-duration: 0.8s;
+  animation-name: keyframes-leading-1;
+  letter-spacing: 1px;
 }
 </style>

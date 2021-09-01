@@ -20,11 +20,21 @@
         class="w-1 flex-grow-3"
       />
       <div
+        v-if="isSingleColumn"
         class="w-1 mx-8 text-lg text-gray-700 truncate cursor-pointer  flex-grow-2 hover:underline"
       >
         {{ item.desc }}
       </div>
-      <div class="flex-grow w-1 font-bold text-right text-gray-700">4:05</div>
+      <div
+        v-if="isSingleColumn"
+        class="flex items-center justify-end flex-grow w-1 font-bold text-right text-gray-700 "
+      >
+        <ViaSvgIcon
+          :name="item.like ? 'heart-solid' : 'heart'"
+          class="hidden mt-px text-xl text-red-600 transition-transform cursor-pointer  hover:scale-105 group-hover:block"
+        />
+        <div class="w-16 font-mono">{{ item.duration || "0:00" }}</div>
+      </div>
     </ViaGridItem>
   </ViaGrid>
 </template>
@@ -49,6 +59,9 @@ export default {
     },
   },
   computed: {
+    isSingleColumn() {
+      return !this.$attrs.cols;
+    },
     coverGroupData() {
       return this.data;
     },
@@ -56,5 +69,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss" scoped>
 </style>

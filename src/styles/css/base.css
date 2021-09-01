@@ -49,11 +49,6 @@
     display: none;
   }
 
-  /* 文字渐变 */
-  .bg-clip-text {
-    -webkit-background-clip: text;
-  }
-
   /*vue 渲染完成后显示*/
   [v-cloak] {
     display: none !important;
