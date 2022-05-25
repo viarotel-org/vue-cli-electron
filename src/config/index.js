@@ -1,8 +1,7 @@
 // eslint-disable-next-line no-undef
 const logoPath = () => `${__static}/logos/index.png`;
 module.exports = {
-  appName: '
-vue-cli-electron',
+  appName: 'vue-cli-electron',
   logoPath,
   // 窗口选项
   windowOptions: () => ({
