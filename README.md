@@ -163,27 +163,16 @@ qq:523469508 wx: luyao-ing
 
 <!-- links -->
 
-[your-project-path]:viarotel/
-vue-cli-electron
-[contributors-shield]: https://img.shields.io/github/contributors/viarotel/
-vue-cli-electron.svg?style=flat-square
-[contributors-url]: https://github.com/viarotel/
-vue-cli-electron/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/viarotel/
-vue-cli-electron.svg?style=flat-square
-[forks-url]: https://github.com/viarotel/
-vue-cli-electron/network/members
-[stars-shield]: https://img.shields.io/github/stars/viarotel/
-vue-cli-electron.svg?style=flat-square
-[stars-url]: https://github.com/viarotel/
-vue-cli-electron/stargazers
-[issues-shield]: https://img.shields.io/github/issues/viarotel/
-vue-cli-electron.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/viarotel/
-vue-cli-electron.svg
-[license-shield]: https://img.shields.io/github/license/viarotel/
-vue-cli-electron.svg?style=flat-square
-[license-url]: https://github.com/viarotel/
-vue-cli-electron/blob/master/LICENSE
+[your-project-path]:viarotel/vue-cli-electron
+[contributors-shield]: https://img.shields.io/github/contributors/viarotel/vue-cli-electron.svg?style=flat-square
+[contributors-url]: https://github.com/viarotel/vue-cli-electron/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/viarotel/vue-cli-electron.svg?style=flat-square
+[forks-url]: https://github.com/viarotel/vue-cli-electron/network/members
+[stars-shield]: https://img.shields.io/github/stars/viarotel/vue-cli-electron.svg?style=flat-square
+[stars-url]: https://github.com/viarotel/vue-cli-electron/stargazers
+[issues-shield]: https://img.shields.io/github/issues/viarotel/vue-cli-electron.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/viarotel/vue-cli-electron.svg
+[license-shield]: https://img.shields.io/github/license/viarotel/vue-cli-electron.svg?style=flat-square
+[license-url]: https://github.com/viarotel/vue-cli-electron/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/viarotel
