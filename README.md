@@ -1,4 +1,5 @@
-# vue-electron-cli
+# 
+vue-cli-electron
 
 基于Vue CLI搭建的Electron脚手架, 封装了最佳实践的多窗口处理以及主进程和渲染进程之间通信等 ui库使用 element-plus(已配置按需导入), css 框架使用 tailwindcss(下一代css框架) 请求使用 axios 进行数据请求
 
@@ -15,21 +16,27 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/viarotel/vue-electron-cli" target="_blank">
+  <a href="https://github.com/viarotel/
+vue-cli-electron" target="_blank">
     <img src="src/assets/images/logo.png" alt="viarotel" height="80">
   </a>
-  <h3 align="center">vue-electron-cli</h3>
+  <h3 align="center">
+vue-cli-electron</h3>
   <p align="center">
     基于Vue CLI搭建的Electron脚手架
     <br />
-    <a href="https://github.com/viarotel/vue-electron-cli" target="_blank"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/viarotel/
+vue-cli-electron" target="_blank"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://vue-electron-cli.vercel.app/" target="_blank">查看Demo</a>
+    <a href="https://
+vue-cli-electron.vercel.app/" target="_blank">查看Demo</a>
     ·
-    <a href="https://github.com/viarotel/vue-electron-cli/issues" target="_blank">报告Bug</a>
+    <a href="https://github.com/viarotel/
+vue-cli-electron/issues" target="_blank">报告Bug</a>
     ·
-    <a href="https://github.com/viarotel/vue-electron-cli/issues" target="_blank">提出新特性</a>
+    <a href="https://github.com/viarotel/
+vue-cli-electron/issues" target="_blank">提出新特性</a>
   </p>
 
 
@@ -53,7 +60,8 @@
 1. clone 本项目 或 直接下载main包
 
 ```sh
-git clone https://github.com/viarotel/vue-electron-cli.git
+git clone https://github.com/viarotel/
+vue-cli-electron.git
 ```
 
 ###### 运行本项目
@@ -155,16 +163,27 @@ qq:523469508 wx: luyao-ing
 
 <!-- links -->
 
-[your-project-path]:viarotel/vue-electron-cli
-[contributors-shield]: https://img.shields.io/github/contributors/viarotel/vue-electron-cli.svg?style=flat-square
-[contributors-url]: https://github.com/viarotel/vue-electron-cli/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/viarotel/vue-electron-cli.svg?style=flat-square
-[forks-url]: https://github.com/viarotel/vue-electron-cli/network/members
-[stars-shield]: https://img.shields.io/github/stars/viarotel/vue-electron-cli.svg?style=flat-square
-[stars-url]: https://github.com/viarotel/vue-electron-cli/stargazers
-[issues-shield]: https://img.shields.io/github/issues/viarotel/vue-electron-cli.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/viarotel/vue-electron-cli.svg
-[license-shield]: https://img.shields.io/github/license/viarotel/vue-electron-cli.svg?style=flat-square
-[license-url]: https://github.com/viarotel/vue-electron-cli/blob/master/LICENSE
+[your-project-path]:viarotel/
+vue-cli-electron
+[contributors-shield]: https://img.shields.io/github/contributors/viarotel/
+vue-cli-electron.svg?style=flat-square
+[contributors-url]: https://github.com/viarotel/
+vue-cli-electron/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/viarotel/
+vue-cli-electron.svg?style=flat-square
+[forks-url]: https://github.com/viarotel/
+vue-cli-electron/network/members
+[stars-shield]: https://img.shields.io/github/stars/viarotel/
+vue-cli-electron.svg?style=flat-square
+[stars-url]: https://github.com/viarotel/
+vue-cli-electron/stargazers
+[issues-shield]: https://img.shields.io/github/issues/viarotel/
+vue-cli-electron.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/viarotel/
+vue-cli-electron.svg
+[license-shield]: https://img.shields.io/github/license/viarotel/
+vue-cli-electron.svg?style=flat-square
+[license-url]: https://github.com/viarotel/
+vue-cli-electron/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/viarotel

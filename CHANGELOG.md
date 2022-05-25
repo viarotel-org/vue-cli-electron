@@ -1,4 +1,5 @@
-# vue-electron-cli更新日志
+# 
+vue-cli-electron更新日志
 
 > 基于Vue CLI搭建的Electron脚手架, 封装了最佳实践的多窗口处理以及主进程和渲染进程之间通信等 ui库使用 element-plus(已配置按需导入), css 框架使用 tailwindcss(下一代css框架) 请求使用axios进行数据请求
 
